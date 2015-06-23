@@ -17,7 +17,7 @@ import com.neusoft.entity.UserData;
  *
  */
 @Repository
-public class UserDataDaoImp implements UserDataDao {
+public class UserDataDaoImpl implements UserDataDao {
 
 	@Resource
 	private SessionFactory sessionFactory;

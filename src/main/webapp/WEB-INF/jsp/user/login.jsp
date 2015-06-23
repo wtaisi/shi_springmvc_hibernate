@@ -15,7 +15,7 @@
 </head>
 
 <body onload="document.getElementById('userName').focus();">
-				<h1>${message}</h1>
+						<h1>${message}</h1>
 			<form id=loginform method=get name=loginform action="login/main">
 				用户名：<input type=text id=userName name=username class="input_border" maxlength=16 /> <br />
 				密码：<input  type=password id=password name=password class="input_border" /> <br />

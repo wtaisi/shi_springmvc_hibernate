@@ -34,22 +34,14 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/main")
-	public ModelAndView login(User user,HttpSession session, HttpServletRequest request) {
-
-		ModelAndView modelView = new ModelAndView();
+	public ModelAndView login(User user,HttpSession session,ModelAndView modelView) {
+		
 		Subject currentUser = SecurityUtils.getSubject();
-		UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
-		token.setRememberMe(true);
 		try {
-			currentUser.login(token);
+			if(currentUser.isPermitted("admin")){
+				modelView.setViewName("user/list");
+			}
 		} catch (AuthenticationException e) {
-			modelView.addObject("message", "login errors");
-			modelView.setViewName("user/login");
-		}
-		if(currentUser.isAuthenticated()){
-			session.setAttribute("userinfo", user);
-			modelView.setViewName("user/list");
-		}else{
 			modelView.addObject("message", "login errors");
 			modelView.setViewName("user/login");
 		}

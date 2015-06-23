@@ -16,7 +16,7 @@ import com.neusoft.entity.UserData;
  */
 @Transactional
 @Service
-public  class UserDataServiceImp  implements UserDataService{
+public  class UserDataServiceImpl  implements UserDataService{
 	
     @Resource
     private UserDataDao userDataDao;
